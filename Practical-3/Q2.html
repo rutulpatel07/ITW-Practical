@@ -1,0 +1,35 @@
+<!-- 2) Find Fibonacci series up to number n. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P_3-Q2</title>
+  </head>
+  <body>
+    <script>
+      function fibonacciSeries(n) {
+        let fib = [0, 1]; // First two numbers of the Fibonacci series
+        for (let i = 2; i < n; i++) {
+          fib.push(fib[i - 1] + fib[i - 2]); // Add the sum of the last two numbers
+        }
+        return fib.slice(0, n); // Return the first 'n' numbers
+      }
+
+      // Get user input
+      let num = parseInt(
+        prompt("Enter the number of terms for Fibonacci series:")
+      );
+
+      if (isNaN(num) || num <= 0) {
+        document.write("Please enter a valid positive number.");
+      } else {
+        document.write(
+          `Fibonacci series up to ${num} terms:`,
+          fibonacciSeries(num)
+        );
+      }
+    </script>
+  </body>
+</html>

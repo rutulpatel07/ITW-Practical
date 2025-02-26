@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like & Dislike Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            font-size: 18px;
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .like-btn {
+            background-color: green;
+            color: white;
+        }
+        .dislike-btn {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Like & Dislike Counter</h2>
+    <button class="like-btn" onclick="increaseLikes()">👍 Like (<span id="likeCount">0</span>)</button>
+    <button class="dislike-btn" onclick="increaseDislikes()">👎 Dislike (<span id="dislikeCount">0</span>)</button>
+
+    <script>
+        let likeCount = 0;
+        let dislikeCount = 0;
+
+        function increaseLikes() {
+            likeCount++; // Increase the like count
+            document.getElementById("likeCount").textContent = likeCount; // Update the display
+        }
+
+        function increaseDislikes() {
+            dislikeCount++; // Increase the dislike count
+            document.getElementById("dislikeCount").textContent = dislikeCount; // Update the display
+        }
+    </script>
+
+</body>
+</html>

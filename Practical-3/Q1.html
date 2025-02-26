@@ -1,0 +1,29 @@
+<!-- Q1.Find factorial of a number using recursion. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P_3-Q1</title>
+  </head>
+  <body>
+    <script>
+      function factorial(n) {
+        if (n === 0 || n === 1) {
+          return 1; // Base case: factorial of 0 and 1 is 1
+        }else{
+            return  n * factorial(n - 1); // Recursive call
+        }
+     }
+      // Get user input
+      let num = parseInt(prompt("Enter a number to find its factorial:"));
+
+      if (isNaN(num) || num < 0) {
+        document.write("Please enter a valid non-negative number.");
+      } else {
+        document.write(`Factorial of ${num} is:`, factorial(num));
+      }
+    </script>
+  </body>
+</html>
