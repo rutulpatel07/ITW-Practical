@@ -1,0 +1,24 @@
+<!-- Write a function which converts Celsius to Fahrenheit. Make this function self-invoking. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celsius to Fahrenheit Converter</title>
+</head>
+<body>
+    <h2>Celsius to Fahrenheit Converter</h2>
+    <script>
+        (function(celsius) {
+            if (!isNaN(celsius)) {
+                let fahrenheit = (celsius * 9/5) + 32;
+                alert(`${celsius}°C = ${fahrenheit}°F`);
+            } else {
+                alert("Please enter a valid number.");
+            }
+        })(parseFloat(prompt("Enter temperature in Celsius:")));
+    </script>
+</body>
+</html>
