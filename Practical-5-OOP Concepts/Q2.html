@@ -1,0 +1,45 @@
+<!-- Create a string and perform operations like: charAt(), concat(), replace(), slice(),
+toLowerCase(), toUpperCase(), substring() -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+<body>
+    <script>
+        // Create and initialize a string
+        let str = "Hello, World!";
+
+        // Display the original string
+        console.log("Original String:", str);
+
+        // charAt() - Get character at a specific index
+        console.log("Character at index 7:", str.charAt(7));
+
+        // concat() - Concatenate another string
+        let newStr = str.concat(" How are you?");
+        console.log("After concat():", newStr);
+
+        // replace() - Replace a substring with another substring
+        let replacedStr = str.replace("World", "JavaScript");
+        console.log("After replace():", replacedStr);
+
+        // slice() - Extract a part of the string
+        let slicedStr = str.slice(0, 5);
+        console.log("After slice():", slicedStr);
+
+        // toLowerCase() - Convert to lowercase
+        console.log("Lowercase:", str.toLowerCase());
+
+        // toUpperCase() - Convert to uppercase
+        console.log("Uppercase:", str.toUpperCase());
+
+        // substring() - Get a substring between two indices
+        let substringStr = str.substring(0, 5);
+        console.log("Substring (0-5):", substringStr);
+    </script>
+</body>
+</html>

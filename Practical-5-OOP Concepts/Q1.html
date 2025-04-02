@@ -1,0 +1,49 @@
+<!-- Write a program to create JavaScript array, initialize it and perform basic operations
+like, push(), pop(), reverse(), sort(), slice(), concat(),splice() -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Array</title>
+</head>
+<body>
+    <script>
+        // Create and initialize an array
+        let fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+        // Display the original array
+        console.log("Original Array:", fruits);
+
+        // Push a new element to the array
+        fruits.push("blueberry");
+        console.log("After push():", fruits);
+
+        // Pop the last element from the array
+        let poppedFruit = fruits.pop();
+        console.log("After pop():", fruits, "| Popped fruit:", poppedFruit);
+
+        // Reverse the array
+        fruits.reverse();
+        console.log("After reverse():", fruits);
+
+        // Sort the array
+        fruits.sort();
+        console.log("After sort():", fruits);
+
+        // Slice the array (get a portion of it)
+        let slicedFruits = fruits.slice(1, 3);
+        console.log("After slice():", slicedFruits);
+
+        // Concatenate another array
+        let moreFruits = ["Fig", "Grape"];
+        let allFruits = fruits.concat(moreFruits);
+        console.log("After concat():", allFruits);
+
+        // Splice the array (remove elements and add new ones)
+        allFruits.splice(2, 2, "Honeydew", "Kiwi");
+        console.log("After splice():", allFruits);
+    </script>
+</body>
+</html>
