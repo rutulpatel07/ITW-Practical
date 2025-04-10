@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 10px;   
+        }
+
+        #pink {
+            background-color: pink;
+        }
+
+        #blue {
+            background-color: blue;
+        }
+
+        #red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function pink() {
+            var b = document.getElementById("text").style.color = "pink";
+        }
+        function blue() {
+            var b = document.getElementById("text").style.color = "blue";
+        }
+        function red() {
+            var b = document.getElementById("text").style.color = "red";
+        }
+    </script>
+    <h2 id="text">Click on any desired color below to change color of text</h2>
+    <div class="square" id="pink" onmousemove="pink()"></div>
+    <div class="square" id="blue" onmousemove="blue()"></div>
+    <div class="square" id="red" onmousemove="red()"></div>
+</body>
+
+</html>
