@@ -1,0 +1,36 @@
+<!-- 6. Count the number of images from a webpage using JS DOM. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Count Images on Webpage - JavaScript DOM</title>
+</head>
+<body>
+
+  <h2>Image Counter using JavaScript DOM</h2>
+
+  <!-- Sample images -->
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6ntPYQ9KnXa7sH-Kyjsb6qyioafpXTYPdOw&sz" alt="Image 1">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK9_mA6rjReIK0_PQg-jE2V2Qc9M0e3PZHPQ&s" alt="Image 2">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw2yvevfemL6w2cjGCTSLiRBg7X5_eSz5kEg&s" alt="Image 3">
+
+  <br><br>
+
+  <button onclick="countImages()">Count Images</button>
+
+  <p id="result"></p>
+
+  <script>
+    function countImages() {
+      // Get all <img> elements in the document
+      const images = document.getElementsByTagName('img');
+
+      // Get the count
+      const total = images.length;
+
+      // Display the count
+      document.getElementById('result').innerText = "Total Images on this page: " + total;
+    }
+  </script>
+
+</body>
+</html>

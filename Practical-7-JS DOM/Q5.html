@@ -1,4 +1,37 @@
 <!-- 5. Resize the window size using JS DOM. -->
 <!DOCTYPE html>
-<html lang="en">
-    
+<html>
+<head>
+  <title>Resize Popup Window - JavaScript DOM</title>
+</head>
+<body>
+
+  <h2>Resize Popup Window using JavaScript</h2>
+
+  <button onclick="openAndResize()">Open and Resize Popup</button>
+
+  <script>
+    function openAndResize() {
+      // Open a new popup window
+      let newWindow = window.open('', '', 'width=400,height=300');
+
+      // Write something inside the new window
+      newWindow.document.write('<h1>This is a resizable popup window</h1>');
+
+      // Wait for 1 second then resize it
+      setTimeout(() => {
+        newWindow.resizeTo(800, 600);
+      }, 1000);
+    }
+  </script>
+
+  <!-- 
+    ⚠️ Note:
+    The window.resizeTo() function is restricted in modern browsers.
+    It will NOT work on the main window (tab).
+    It ONLY works on popup windows opened using window.open().
+    Most browsers block scripts from resizing the main window for security reasons.
+  -->
+
+</body>
+</html>
