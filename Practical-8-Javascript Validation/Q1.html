@@ -1,0 +1,50 @@
+<!-- 1. Create a form to change the password where the user needs to enter an older
+password, a new password and retype new password. Validate that form with older
+password “Admin”, new password and retype new password must be the same. -->
+<!-- Extra Excercise:-Your new password must include 0-9, a-z, A-Z, special characters also, must be greater
+than 6 length and less than 15 characters long. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Change Form</title>
+    <script>
+        function validateForm() {
+            var oldPassword = document.getElementById("oldPassword").value;
+            var newPassword = document.getElementById("newPassword").value;
+            var retypePassword = document.getElementById("retypePassword").value;
+
+            if (oldPassword !== "Admin") {
+                alert("Old password is incorrect.");
+                return false;
+            }
+            if (newPassword !== retypePassword) {
+                alert("New password and retype password must match.");
+                return false;
+            }
+            if (!/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,15}$/.test(newPassword)) {
+                alert("New password must be 6-15 characters long and include at least one digit, one lowercase letter, one uppercase letter, and one special character.");
+                return false;
+            }
+            alert("Password changed successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Change Password</h2>
+    <form onsubmit="return validateForm()">
+        <label for="oldPassword">Old Password:</label><br>
+        <input type="password" id="oldPassword" name="oldPassword" required><br><br>
+        
+        <label for="newPassword">New Password:</label><br>
+        <input type="password" id="newPassword" name="newPassword" required><br><br>
+        
+        <label for="retypePassword">Retype New Password:</label><br>
+        <input type="password" id="retypePassword" name="retypePassword" required><br><br>
+        
+        <input type="submit" value="Change Password">
+    </form>
+</body>
+</html>

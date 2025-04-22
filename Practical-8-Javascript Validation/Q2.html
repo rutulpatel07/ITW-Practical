@@ -1,0 +1,30 @@
+<!-- 2. Take a string as input and extract only characters among ‘a to d‘ and display that.
+(Use concept of Regular Expression in JavaScript) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Characters</title>
+    <script>
+        function extractCharacters() {
+            var inputString = document.getElementById("inputString").value;
+            var regex = /[a-d]/g;
+            var result = inputString.match(regex);
+            if (result) {
+                document.getElementById("result").innerText = "Extracted characters: " + result.join(", ");
+            } else {
+                document.getElementById("result").innerText = "No characters found in the range a to d.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Extract Characters from a String</h2>
+    <label for="inputString">Enter a string:</label><br>
+    <input type="text" id="inputString" name="inputString" required><br><br>
+    <button onclick="extractCharacters()">Extract Characters</button>
+    <p id="result"></p>
+</body>
+</html>
