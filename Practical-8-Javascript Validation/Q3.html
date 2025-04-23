@@ -1,171 +1,95 @@
-Javascript Validation\Q3.html -->
+<!-- 3. Validate a form having following fields:name: Only Alphabets
+email: Email validation
+zip: Zip validation
+country: Select atleast one country from
+Drop down list -->
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
     <title>Form Validation</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .form-container {
-            width: 500px;
-            margin: 0 auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-        td {
-            padding: 10px;
-        }
-        .error {
-            color: red;
-            font-size: 12px;
-            display: none;
-        }
-        input, select {
-            width: 100%;
-            padding: 5px;
-            box-sizing: border-box;
-        }
-        button {
-            padding: 10px 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      .error {
+        color: red;
+        font-size: 14px;
+      }
     </style>
-</head>
-<body>
-    <div class="form-container">
-        <h2>Form Validation</h2>
-        <form id="validationForm" onsubmit="return validateForm()">
-            <table>
-                <tr>
-                    <td>name:</td>
-                    <td>
-                        <input type="text" id="name" name="name">
-                        <div id="nameError" class="error">Please enter alphabets only</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>email:</td>
-                    <td>
-                        <input type="text" id="email" name="email">
-                        <div id="emailError" class="error">Please enter a valid email</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>zip:</td>
-                    <td>
-                        <input type="text" id="zip" name="zip">
-                        <div id="zipError" class="error">Please enter a valid zip code</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>country:</td>
-                    <td>
-                        <select id="country" name="country">
-                            <option value="">Select a country</option>
-                            <option value="usa">USA</option>
-                            <option value="india">India</option>
-                            <option value="uk">United Kingdom</option>
-                            <option value="canada">Canada</option>
-                            <option value="australia">Australia</option>
-                        </select>
-                        <div id="countryError" class="error">Please select at least one country</div>
-                    </td>
-                </tr>
-            </table>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+  </head>
+  <body>
+    <h2>Form Validation</h2>
+    <form onsubmit="return validateForm()">
+      <label>Name: <input type="text" id="name" /></label>
+      <div class="error" id="nameError"></div>
+
+      <label>Email: <input type="text" id="email" /></label>
+      <div class="error" id="emailError"></div>
+
+      <label>ZIP Code: <input type="text" id="zip" /></label>
+      <div class="error" id="zipError"></div>
+
+      <label
+        >Country:
+        <select id="country">
+          <option value="">-- Select Country --</option>
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="UK">UK</option>
+        </select>
+      </label>
+      <div class="error" id="countryError"></div>
+
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
 
     <script>
-        function validateForm() {
-            let isValid = true;
-            
-            // Name validation - only alphabets
-            const name = document.getElementById('name').value;
-            const namePattern = /^[a-zA-Z\s]+$/;
-            if (!namePattern.test(name)) {
-                document.getElementById('nameError').style.display = 'block';
-                isValid = false;
-            } else {
-                document.getElementById('nameError').style.display = 'none';
-            }
-            
-            // Email validation
-            const email = document.getElementById('email').value;
-            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            if (!emailPattern.test(email)) {
-                document.getElementById('emailError').style.display = 'block';
-                isValid = false;
-            } else {
-                document.getElementById('emailError').style.display = 'none';
-            }
-            
-            // Zip code validation
-            const zip = document.getElementById('zip').value;
-            // This pattern allows common zip formats (US 5-digit or 5+4, Canada, etc.)
-            const zipPattern = /^[0-9]{5}(-[0-9]{4})?$/;
-            if (!zipPattern.test(zip)) {
-                document.getElementById('zipError').style.display = 'block';
-                isValid = false;
-            } else {
-                document.getElementById('zipError').style.display = 'none';
-            }
-            
-            // Country validation (at least one country must be selected)
-            const country = document.getElementById('country').value;
-            if (country === '') {
-                document.getElementById('countryError').style.display = 'block';
-                isValid = false;
-            } else {
-                document.getElementById('countryError').style.display = 'none';
-            }
-            
-            return isValid;
+      function validateForm() {
+        let valid = true;
+
+        // Clear previous error messages
+        document.getElementById("nameError").innerText = "";
+        document.getElementById("emailError").innerText = "";
+        document.getElementById("zipError").innerText = "";
+        document.getElementById("countryError").innerText = "";
+
+        // Name validation (only alphabets)
+        const name = document.getElementById("name").value;
+        if (!/^[A-Za-z\s]+$/.test(name)) {
+          document.getElementById("nameError").innerText =
+            "Name must contain only alphabets.";
+          valid = false;
         }
-        
-        // Real-time validation for better user experience
-        document.getElementById('name').addEventListener('input', function() {
-            const namePattern = /^[a-zA-Z\s]+$/;
-            if (!namePattern.test(this.value) && this.value !== '') {
-                document.getElementById('nameError').style.display = 'block';
-            } else {
-                document.getElementById('nameError').style.display = 'none';
-            }
-        });
-        
-        document.getElementById('email').addEventListener('input', function() {
-            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            if (!emailPattern.test(this.value) && this.value !== '') {
-                document.getElementById('emailError').style.display = 'block';
-            } else {
-                document.getElementById('emailError').style.display = 'none';
-            }
-        });
-        
-        document.getElementById('zip').addEventListener('input', function() {
-            const zipPattern = /^[0-9]{6}(-[0-9]{4})?$/;
-            if (!zipPattern.test(this.value) && this.value !== '') {
-                document.getElementById('zipError').style.display = 'block';
-            } else {
-                document.getElementById('zipError').style.display = 'none';
-            }
-        });
+
+        // Email validation
+        const email = document.getElementById("email").value;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          document.getElementById("emailError").innerText =
+            "Invalid email format.";
+          valid = false;
+        }
+
+        // ZIP validation (5 digits)
+        const zip = document.getElementById("zip").value;
+        if (!/^\d{5,6}$/.test(zip)) {
+          document.getElementById("zipError").innerText = "Invalid ZIP code.";
+          valid = false;
+        }
+
+        // Country selection
+        const country = document.getElementById("country").value;
+        if (country === "") {
+          document.getElementById("countryError").innerText =
+            "Please select a country.";
+          valid = false;
+        }
+
+        return valid;
+      }
     </script>
-</body>
+  </body>
 </html>
