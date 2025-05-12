@@ -1,0 +1,28 @@
+<!-- Write an angular JS Creating a Select Box Using ng-options -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AngularJS Select Box</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="selectCtrl">
+  <h2>Select a Country</h2>
+
+  <select ng-model="selectedCountry" ng-options="x for x in countries">
+  </select>
+
+  <p>You selected: <strong>{{ selectedCountry }}</strong></p>
+</div>
+
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('selectCtrl', function($scope) {
+    $scope.countries = ["India", "USA", "Canada", "Australia", "UK"];
+  });
+</script>
+
+</body>
+</html>
